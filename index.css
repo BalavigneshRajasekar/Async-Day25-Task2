@@ -1,0 +1,21 @@
+input {
+  height: 50px;
+}
+button {
+  height: 50px;
+}
+.h1 {
+  font-size: 2.3rem;
+  background: linear-gradient(
+    90deg,
+    rgb(116, 50, 128),
+    rgb(36, 89, 169),
+    rgb(52, 145, 134)
+  );
+
+  color: transparent;
+  background-clip: text;
+}
+tbody tr:nth-of-type(even) {
+  background-color: grey;
+}
