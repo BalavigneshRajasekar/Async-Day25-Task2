@@ -16,6 +16,6 @@ button {
   color: transparent;
   background-clip: text;
 }
-tbody tr:nth-of-type(even) {
-  background-color: grey;
+table tr:nth-of-type(odd) {
+  background-color: rgb(231, 228, 228);
 }

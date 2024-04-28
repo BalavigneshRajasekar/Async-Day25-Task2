@@ -17,7 +17,7 @@ A Random Quotes Generator App is designed to generate and display random quotes 
 
 ## Demo
 
-https://website-design-plum.vercel.app/
+https://quotes-generator-lilac.vercel.app/
 
 ## Documentation
 

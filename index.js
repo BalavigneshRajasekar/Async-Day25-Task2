@@ -57,11 +57,11 @@ function fetchData(api) {
 
     quotes.forEach((quote, index) => {
       let child = document.createElement("tr");
-      child.innerHTML = ` <td>${index + 1}</td>
-              <td class="w-auto over">
+      child.innerHTML = ` <td class="py-4 px-3">${index + 1}</td>
+              <td class="w-auto over py-4 px-3">
                ${quote.quote}
               </td>
-              <td>${quote.author}</td>`;
+              <td class="py-4 px-3">${quote.author}</td>`;
 
       parent.appendChild(child);
       child.classList.add("text-center");
