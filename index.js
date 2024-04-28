@@ -1,4 +1,8 @@
 let input = document.getElementById("Input");
+//initially all the below element in block state
+let alertDiv = document.getElementById("alert");
+let tableDiv = document.getElementById("table");
+let spinnerDiv = document.getElementById("spinner");
 
 //The following function is used to Generate the Quotes with user input by Initialize tha API call
 function generateQuotes() {
@@ -6,10 +10,20 @@ function generateQuotes() {
   let userInput = input.value;
   //This will check if the user input is less than or equal to 0
   if (userInput <= 0) {
-    alert("plz enter POsitive number");
+    //This will hide the table and show the alert
+    tableDiv.classList.replace("d-block", "d-none");
+    alertDiv.classList.replace("d-none", "d-block");
+    alertDiv.innerHTML = "Please Enter a Positive Number";
+    input.focus();
+    input.value = "";
+    return;
   }
   //This will execute The actual function
   else {
+    //This will hide the table and show the Spinner
+    alertDiv.classList.replace("d-block", "d-none");
+    spinnerDiv.classList.replace("d-none", "d-block");
+    tableDiv.classList.replace("d-block", "d-none");
     let api = new Promise((resolve, reject) => {
       let url = `https://lucifer-quotes.vercel.app/api/quotes/${userInput}`;
       fetch(url)
@@ -33,6 +47,10 @@ function generateQuotes() {
 //The following will hep to fetch error and data
 function fetchData(api) {
   api.then((data) => {
+    //This point we got resolve so here It will hide the Spinner,alert and show the Table
+    tableDiv.classList.replace("d-none", "d-block");
+    spinnerDiv.classList.replace("d-block", "d-none");
+    alertDiv.classList.replace("d-block", "d-none");
     let quotes = [...data];
     let parent = document.getElementById("tbody");
     parent.innerHTML = "";
@@ -50,6 +68,10 @@ function fetchData(api) {
     });
   });
   api.catch((error) => {
-    console.log(error);
+    //This point we got reject so here It will hide the Table,spinner and show Alert
+    alertDiv.classList.replace("d-none", "d-block");
+    alertDiv.innerHTML = error.message;
+    tableDiv.classList.replace("d-block", "d-none");
+    spinnerDiv.classList.replace("d-block", "d-none");
   });
 }
